@@ -1,13 +1,19 @@
-import "./App.css";
-import { Button } from "@/components/ui/button";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { ThemeProvider } from "@/context/ThemeContext";
+import IndexPage from "./pages/Index";
+import { SidebarProvider } from "@/context/SidebarContext";
 
 function App() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center min-h-svh">
-        <Button>Click me</Button>
-      </div>
-    </>
+    <ThemeProvider>
+      <SidebarProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<IndexPage />} />
+          </Routes>
+        </BrowserRouter>
+      </SidebarProvider>
+    </ThemeProvider>
   );
 }
 
