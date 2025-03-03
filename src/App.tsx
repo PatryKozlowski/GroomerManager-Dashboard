@@ -1,19 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import { ThemeProvider } from "@/context/ThemeContext";
-import IndexPage from "./pages/Index";
 import { SidebarProvider } from "@/context/SidebarContext";
+import { SalonProvider } from "@/context/SalonContext";
+import { Toaster } from "@/components/ui/sonner";
+import IndexPage from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import Clients from "./pages/Clients";
 
 function App() {
   return (
-    <ThemeProvider>
-      <SidebarProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<IndexPage />} />
-          </Routes>
-        </BrowserRouter>
-      </SidebarProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <SidebarProvider>
+          <SalonProvider>
+            <Routes>
+              <Route path="/" element={<IndexPage />} />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Toaster />
+          </SalonProvider>
+        </SidebarProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

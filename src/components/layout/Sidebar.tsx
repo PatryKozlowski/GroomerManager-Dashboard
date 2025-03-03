@@ -92,7 +92,7 @@ function Sidebar() {
     <div className="relative">
       <aside
         className={cn(
-          "fixed z-50 flex flex-col h-full transition-all duration-300 ease-in-out shadow-lg bg-background border-r lg:relative lg:z-auto",
+          "fixed z-50 flex flex-col h-full transition-[width] duration-300 ease-in-out shadow-lg bg-background border-r lg:relative lg:z-auto",
           isCollapsed ? "w-full" : "w-0 lg:w-64"
         )}
       >
